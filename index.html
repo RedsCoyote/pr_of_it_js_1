@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Cписок автомобилей</title>
+</head>
+<body>
+<script>
+  let auto = [
+    {name: "Subaru Outback (седан)", level: "1994–1999", country: "Япония", price: "145000-235000"},
+    {name: "Subaru Outback (универсал)", level: "1994–1999", country: "Япония", price: "145000-235000"},
+    {name: "Subaru Outback (седан)", level: "1999–2003", country: "Япония", price: "250000-350000"},
+    {name: "Subaru Outback (универсал)", level: "1999–2003", country: "Япония", price: "130000-580000"},
+    {name: "Subaru Outback (седан)", level: "2003–2006", country: "Япония", price: "527000-750000"},
+    {name: "Subaru Outback (универсал)", level: "2003–2006", country: "Япония", price: "350000-690000"},
+    {name: "Subaru Outback", level: "2006–2009", country: "Япония", price: "430000-850000"},
+    {name: "Subaru Outback", level: "2009–2012", country: "Япония", price: "700000-1200000"},
+    {name: "Subaru Outback", level: "2012–2014", country: "Япония", price: "825000-1550000"},
+    {name: "Subaru Outback", level: "2014–н.д.", country: "Япония", price: "1500000-3300000"},
+  ];
+  let mainList = document.createElement('ul');
+  let autoRecord, title, propertyList, level, country, price;
+  for (let model in auto) {
+    model = auto[model];
+    autoRecord = document.createElement('li');
+    title = document.createElement('span');
+    title.innerText = model.name;
+    autoRecord.appendChild(title);
+    propertyList = document.createElement('ul');
+    level = document.createElement('li');
+    level.innerText = 'Поколение: ' + model.level;  // Если бы не дополнительный текст, можно было бы в цикл завернуть
+    propertyList.appendChild(level);
+    country = document.createElement('li');
+    country.innerText = 'Страна: ' + model.country;
+    propertyList.appendChild(country);
+    price = document.createElement('li');
+    price.innerText = 'Цена: ' + model.price + ' руб.';
+    propertyList.appendChild(price);
+    autoRecord.appendChild(propertyList);
+    mainList.appendChild(autoRecord);
+  }
+  document.body.insertBefore(mainList, document.body.firstChild); // firstChild в данном случае - сам скрипт
+</script>
+</body>
+</html>
